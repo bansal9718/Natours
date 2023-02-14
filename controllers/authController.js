@@ -55,6 +55,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     role: req.body.role,
   });
   createAndSendToken(newUser, 201, req, res);
+  
   // const token = signToken(newUser._id);
 
   // res.status(201).json({
@@ -113,7 +114,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     req.headers.authorization.startsWith('Bearer')
   ) {
     token = req.headers.authorization.split(' ')[1];
-    console.log(token);
+    // console.log(token);
   } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
   }
