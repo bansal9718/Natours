@@ -4,7 +4,6 @@ process.on('uncaughtException', (err) => {
   console.log(err.name, err.message);
   console.log('Uncaught Exception  Shutting down...');
   process.exit(1);
-  j;
 });
 dotenv.config({ path: `./config.env` });
 const app = require('./app');

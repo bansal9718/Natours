@@ -55,7 +55,7 @@ exports.signup = catchAsync(async (req, res, next) => {
     role: req.body.role,
   });
   createAndSendToken(newUser, 201, req, res);
-  
+
   // const token = signToken(newUser._id);
 
   // res.status(201).json({
@@ -118,7 +118,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
   }
-
+  console.log(req.headers.authorization);
   if (!token) {
     return next(
       new AppError('You are not logged in!,please log in to get access.'),
